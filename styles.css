@@ -1,0 +1,7 @@
+.Container {
+    background-color: purple;
+    display: flex;
+}
+.ButtonHolder {
+    display: flex;
+}
