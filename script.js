@@ -3,22 +3,24 @@ function playRound(userSelect, compSelect) {
     console.log(compSelect);
     let winsBox = document.getElementById('Wins');
     let lossBox = document.getElementById('Losses');
-    
+    let recentBox = document.getElementById('MostRecent');
+    let wins = winsBox.innerText.charAt(winsBox.innerText.length-1);
+    let losses = lossBox.innerText.charAt(lossBox.innerText.length-1);
+    console.log('wins: ' + wins);
+    console.log('losses: ' + losses);
     if(userSelect == compSelect) {
         return "You have both chosen: " + userSelect;
     }
     switch (userSelect) {
         case "Rock":
             if(compSelect == 'Paper') {
-                document.getElementById('Losses').innerText = 
-                parseInt(document.getElementById('Losses').innerText) + 1
-                document.getElementById('MostRecent').innerText ='Paper covers Rock, you lose';
+                lossBox.innerText = 'Losses: ' + (parseInt(losses) + 1);
+                recentBox.innerText ='Paper covers Rock, you lose';
                 return 'Paper covers Rock, you lose';
             }
             else {
-                document.getElementById('Wins').innerText = 
-                parseInt(document.getElementById('Wins').innerText) + 1
-                document.getElementById('MostRecent').innerText = "Rock crushses Scissors, you win";
+                winsBox.innerText = 'Wins: ' + (parseInt(wins) + 1);
+                recentBox.innerText = "Rock crushses Scissors, you win";
                 return "Rock crushses Scissors, you win";
             }
         case "Paper":
